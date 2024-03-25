@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Dropdown.css";
 
-const Dropdown = ({ options, customSearch }) => {
+const Dropdown = ({ options, customComponent, customSearch }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredOptions, setFilteredOptions] = useState(options);
@@ -68,7 +68,7 @@ const Dropdown = ({ options, customSearch }) => {
                     selectedOption === option ? "grey" : "transparent",
                 }}
               >
-                {option}
+                {customComponent ? customComponent(option) : option}
               </li>
             ))}
           </ul>
